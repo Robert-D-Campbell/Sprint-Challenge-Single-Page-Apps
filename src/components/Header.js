@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <StyledHeader className="ui centered">
       <h1 className="ui center">WUBBA LUBBA DUB DUB!!</h1>
-      <sm>( I am in great pain, please help me... )</sm>
+      <small>( I am in great pain, please help me... )</small>
     </StyledHeader>
   );
 }
@@ -21,7 +21,8 @@ const StyledHeader = styled.header`
     color: #b5edfc;
     margin-bottom: 2%;
   }
-  sm {
+  small {
+    font-size: 1.2rem;
     color: #b5edfc;
   }
 `;
