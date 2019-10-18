@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const LocationCard = props => {
+const EpisodeCard = props => {
   return (
-    <CardStyle className="location-card">
-      <h1>{props.name}</h1>
-      <h2>Type: {props.type}</h2>
-      <h3>Dimension: {props.dimension}</h3>
-      <h3>Residents: {props.residents}</h3>
+    <CardStyle className="episode-card">
+      <h1> {props.name}</h1>
+      <h2>Air Date: {props.air_date}</h2>
+      <h3>Episode: {props.episode}</h3>
     </CardStyle>
   );
 };
@@ -46,4 +45,4 @@ const CardStyle = styled.div`
   }
 `;
 
-export default LocationCard;
+export default EpisodeCard;

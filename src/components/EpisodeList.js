@@ -2,29 +2,29 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import CharacterCard from "./CharacterCard";
+import EpisodeCard from "./EpisodeCard";
 
-export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
+export default function EpisodeList() {
+  const [episodes, setEpisodes] = useState([]);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const getCharacters = () => {
+    const getEpisodes = () => {
       axios
-        .get("https://rickandmortyapi.com/api/character/")
+        .get("https://rickandmortyapi.com/api/episode/")
         .then(res => {
-          const data = res.data.results.filter(character =>
-            character.name.toLowerCase().includes(query.toLowerCase())
+          const data = res.data.results.filter(episode =>
+            episode.name.toLowerCase().includes(query.toLowerCase())
           );
           console.log(data);
-          setCharacters(data);
+          setEpisodes(data);
         })
         .catch(error => {
           console.error("Server Error", error);
         });
     };
 
-    getCharacters();
+    getEpisodes();
   }, [query]);
 
   const handleInputChange = e => {
@@ -32,7 +32,7 @@ export default function CharacterList() {
   };
 
   return (
-    <CharacterGrid className="character-list">
+    <EpisodeGrid className="episode-list">
       <div className="search-container">
         <form className="search">
           <input
@@ -41,29 +41,27 @@ export default function CharacterList() {
             value={query}
             name="name"
             tabIndex="0"
-            className="search-name"
+            className="search-episode"
             placeholder="Search by Name"
             autoComplete="off"
           />
         </form>
       </div>
-      {characters.map((char, index) => {
+      {episodes.map((episode, index) => {
         return (
-          <CharacterCard
+          <EpisodeCard
             key={index}
-            image={char.image}
-            name={char.name}
-            gender={char.gender}
-            status={char.status}
-            species={char.species}
+            name={episode.name}
+            air_date={episode.air_date}
+            episode={episode.episode}
           />
         );
       })}
-    </CharacterGrid>
+    </EpisodeGrid>
   );
 }
 
-const CharacterGrid = styled.section`
+const EpisodeGrid = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
