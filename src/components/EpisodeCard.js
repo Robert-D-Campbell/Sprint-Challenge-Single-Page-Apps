@@ -4,9 +4,9 @@ import styled from "styled-components";
 const EpisodeCard = props => {
   return (
     <CardStyle className="episode-card">
-      <h1> {props.name}</h1>
-      <h2>Air Date: {props.air_date}</h2>
-      <h3>Episode: {props.episode}</h3>
+      <h1>Episode: {props.episode}</h1>
+      <h2>{props.name}</h2>
+      <h3>Air Date: {props.air_date}</h3>
     </CardStyle>
   );
 };
@@ -28,14 +28,18 @@ const CardStyle = styled.div`
     margin: 5% auto;
   }
   h1 {
-    margin: 0;
+    margin: 2% auto 8%;
     color: #00b0c8;
     font-size: 3rem;
+    text-shadow: -1px -1px 0 #c4da5b, 1px -1px 0 #c4da5b, -1px 1px 0 #c4da5b,
+      1px 1px 0 #c4da5b;
   }
   h2 {
-    margin: 0;
+    margin: 6% auto 10%;
     color: #00b0c8;
     font-size: 2rem;
+    text-shadow: -1px -1px 0 #c4da5b, 1px -1px 0 #c4da5b, -1px 1px 0 #c4da5b,
+      1px 1px 0 #c4da5b;
   }
   h3 {
     margin: 0;

@@ -16,7 +16,9 @@ const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
 }
-
+*:focus {
+    outline: none;
+}
 html {
   font-size: 62.5%;
   background: #262C3A; 

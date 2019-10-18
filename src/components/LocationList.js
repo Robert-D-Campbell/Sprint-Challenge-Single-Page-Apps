@@ -43,6 +43,7 @@ export default function LocationsList() {
             className="search-location"
             placeholder="Search by Name"
             autoComplete="off"
+            size="30"
           />
         </form>
       </div>
@@ -70,5 +71,14 @@ const LocationGrid = styled.section`
     display: flex;
     justify-content: center;
     width: 100%;
+    .search-location {
+      box-shadow: 3px 3px 8px #00b0c8;
+      background: transparent;
+      border: 2px solid #c4da5b;
+      border-radius: 8px;
+      height: 30px;
+      color: #c4da5b;
+      padding-left: 5%;
+    }
   }
 `;

@@ -41,6 +41,8 @@ const CardStyle = styled.div`
     margin: 0;
     color: #00b0c8;
     font-size: 2rem;
+    text-shadow: -1px -1px 0 #c4da5b, 1px -1px 0 #c4da5b, -1px 1px 0 #c4da5b,
+      1px 1px 0 #c4da5b;
   }
   h3 {
     margin: 0;
