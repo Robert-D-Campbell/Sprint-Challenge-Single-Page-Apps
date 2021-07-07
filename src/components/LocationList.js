@@ -2,29 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import CharacterCard from "./CharacterCard";
-
-export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
+import LocationCard from "./LocationCard";
+export default function LocationsList() {
+  const [locations, setLocations] = useState([]);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const getCharacters = () => {
+    const getLocations = () => {
       axios
-        .get("https://rickandmortyapi.com/api/character/")
+        .get("https://rickandmortyapi.com/api/location/")
         .then(res => {
-          const data = res.data.results.filter(character =>
-            character.name.toLowerCase().includes(query.toLowerCase())
+          const data = res.data.results.filter(location =>
+            location.name.toLowerCase().includes(query.toLowerCase())
           );
           console.log(data);
-          setCharacters(data);
+          setLocations(data);
         })
         .catch(error => {
           console.error("Server Error", error);
         });
     };
 
-    getCharacters();
+    getLocations();
   }, [query]);
 
   const handleInputChange = e => {
@@ -32,7 +31,7 @@ export default function CharacterList() {
   };
 
   return (
-    <CharacterGrid className="character-list">
+    <LocationGrid className="location-list">
       <div className="search-container">
         <form className="search">
           <input
@@ -41,30 +40,29 @@ export default function CharacterList() {
             value={query}
             name="name"
             tabIndex="0"
-            className="search-name"
+            className="search-location"
             placeholder="Search by Name"
             autoComplete="off"
             size="30"
           />
         </form>
       </div>
-      {characters.map((char, index) => {
+      {locations.map((loc, index) => {
         return (
-          <CharacterCard
+          <LocationCard
             key={index}
-            image={char.image}
-            name={char.name}
-            gender={char.gender}
-            status={char.status}
-            species={char.species}
+            name={loc.name}
+            type={loc.type}
+            dimension={loc.dimension}
+            residents={loc.residents.length}
           />
         );
       })}
-    </CharacterGrid>
+    </LocationGrid>
   );
 }
 
-const CharacterGrid = styled.section`
+const LocationGrid = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -73,7 +71,7 @@ const CharacterGrid = styled.section`
     display: flex;
     justify-content: center;
     width: 100%;
-    .search-name {
+    .search-location {
       box-shadow: 3px 3px 8px #00b0c8;
       background: transparent;
       border: 2px solid #c4da5b;

@@ -1,18 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const CharacterCard = props => {
+const EpisodeCard = props => {
   return (
-    <CardStyle className="character-card">
-      <img
-        className="character-img"
-        alt="Rick and Morty Character Portrait"
-        src={props.image}
-      />
-      <h1>{props.name}</h1>
-      <h3>{props.gender}</h3>
-      <h2>Status: {props.status}</h2>
-      <h3>Species: {props.species}</h3>
+    <CardStyle className="episode-card">
+      <h1>Episode: {props.episode}</h1>
+      <h2>{props.name}</h2>
+      <h3>Air Date: {props.air_date}</h3>
     </CardStyle>
   );
 };
@@ -21,6 +15,7 @@ const CardStyle = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 20%;
   max-width: 100%;
   flex-wrap: wrap;
   align-content: center;
@@ -33,12 +28,14 @@ const CardStyle = styled.div`
     margin: 5% auto;
   }
   h1 {
-    margin: 0;
+    margin: 2% auto 8%;
     color: #00b0c8;
     font-size: 3rem;
+    text-shadow: -1px -1px 0 #c4da5b, 1px -1px 0 #c4da5b, -1px 1px 0 #c4da5b,
+      1px 1px 0 #c4da5b;
   }
   h2 {
-    margin: 0;
+    margin: 6% auto 10%;
     color: #00b0c8;
     font-size: 2rem;
     text-shadow: -1px -1px 0 #c4da5b, 1px -1px 0 #c4da5b, -1px 1px 0 #c4da5b,
@@ -52,4 +49,4 @@ const CardStyle = styled.div`
   }
 `;
 
-export default CharacterCard;
+export default EpisodeCard;
